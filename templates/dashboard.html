@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident Dashboard</title>
+    <link rel="stylesheet" href="static/css/dashboard.css">
+    <script>
+        // Function to toggle visibility of graphs
+        function showGraph(graphId) {
+            const graphs = document.getElementsByClassName('graph');
+            for (let i = 0; i < graphs.length; i++) {
+                graphs[i].style.display = 'none';
+            }
+            document.getElementById(graphId).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <h1>Incident Dashboard</h1>
+        <div class="button-container">
+            <button onclick="location.href='/'" class="back-button">Go Back to Main Page</button>
+            <button onclick="showGraph('pieChart')">Show Pie Chart</button>
+            <button onclick="showGraph('barChart')">Show Bar Chart</button>
+            <button onclick="showGraph('heatmap')">Show Heatmap</button>
+            <button onclick="showGraph('clustering')">Show Clustering Graph</button>
+        </div>
+    </div>
+
+    <!-- Graphs -->
+    <div id="pieChart" class="graph" style="display:none;">
+        <h2>Pie Chart</h2>
+        <img src="data:image/png;base64,{{ pie_chart_url }}" alt="Pie Chart">
+    </div>
+
+    <div id="barChart" class="graph" style="display:none;">
+        <h2>Bar Chart</h2>
+        <img src="data:image/png;base64,{{ bar_chart_url }}" alt="Bar Chart">
+    </div>
+
+    <div id="heatmap" class="graph" style="display:none;">
+        <h2>Heatmap of Incidents by Location</h2>
+        <img src="data:image/png;base64,{{ heatmap_url }}" alt="Heatmap">
+    </div>
+
+    <div id="clustering" class="graph" style="display:none;">
+        <h2>Clustering of Incidents</h2>
+        <img src="data:image/png;base64,{{ clustering_url }}" alt="Clustering Graph">
+    </div>
+</body>
+</html>

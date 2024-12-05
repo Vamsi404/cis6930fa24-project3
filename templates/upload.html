@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Incident Report</title>
+    <link rel="stylesheet" href="static/css/upload.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-card">
+            <h1>Upload NormanPD Incident Report</h1>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <label for="file">Upload PDF File:</label>
+                <input type="file" name="file" accept="application/pdf" class="input-file">
+                <br><br>
+                <label for="url">Or provide PDF URL:</label>
+                <input type="text" name="url" placeholder="Enter PDF URL" class="input-text">
+                <br><br>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
