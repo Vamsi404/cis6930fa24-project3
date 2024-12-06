@@ -1,9 +1,8 @@
 
-# README for Incident Analysis Application
+## Incident Analysis Application
 
-## Author
-Vamsi Manda
-UFID-43226231
+## Author: Vamsi Manda
+## UFID: 43226231
 
 ## Overview
 This application provides tools to process incident data from uploaded or URL-provided PDF files. It generates visual dashboards and clustering insights, offering actionable information through an easy-to-use web interface.
