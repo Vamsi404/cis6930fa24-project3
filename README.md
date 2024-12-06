@@ -1,7 +1,7 @@
 
-## Incident Analysis Application
+# Incident Analysis Application
 
-## Author: Vamsi Manda
+## Author: Vamsi Manda  
 ## UFID: 43226231
 
 ## Overview
@@ -169,6 +169,34 @@ def test_database_operations():
    - Bar and pie charts for incident types
    - Heatmaps and clustering outputs
 4. Access summarized incident data via the `/data` endpoint in JSON format.
+
+---
+
+## Principal Components Explained(For Clustering Graph)
+
+### **First Principal Component (PC1)**:
+The **first principal component (PC1)** is the **linear combination of the original features** (`hour`, `location_encoded`, and `nature_encoded`) that captures the **maximum variance** in the dataset.
+
+Mathematically, it is expressed as:
+\[
+\text{PC1} = v_1 \cdot \text{hour} + v_2 \cdot \text{location\_encoded} + v_3 \cdot \text{nature\_encoded}
+\]
+Where:
+- \( v_1, v_2, v_3 \) are the **weights** (or loadings) for each feature, derived from the eigenvector corresponding to the largest eigenvalue of the covariance matrix.
+
+In simpler terms, **PC1** represents the direction in the data where the variation is greatest. The features that contribute the most to this direction (with higher weights) have the largest influence on **PC1**.
+
+### **Second Principal Component (PC2)**:
+The **second principal component (PC2)** is another **linear combination of the features** that captures the **second-highest variance** in the data. It is **orthogonal** to **PC1**, meaning it explains the variance that is not captured by **PC1**.
+
+Mathematically, **PC2** is:
+\[
+\text{PC2} = v_1' \cdot \text{hour} + v_2' \cdot \text{location\_encoded} + v_3' \cdot \text{nature\_encoded}
+\]
+Where:
+- \( v_1', v_2', v_3' \) are the weights for **PC2**, derived from the second-largest eigenvalue of the covariance matrix.
+
+**PC2** captures patterns that are important but not already explained by **PC1**, focusing on the next largest direction of variance. Together, **PC1** and **PC2** provide a 2D view of the data, showing its most significant patterns when visualized in clustering or scatter plots.
 
 ---
 
