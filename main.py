@@ -9,6 +9,11 @@ import io
 import base64
 import pandas as pd
 import seaborn as sns
+import warnings
+
+warnings.filterwarnings("ignore", category=DeprecationWarning, module="PyPDF2")
+warnings.filterwarnings("ignore", category=DeprecationWarning, module="jupyter_client.connect")
+
 
 app = Flask(__name__)
 UPLOAD_FOLDER = './utils'
@@ -137,17 +142,13 @@ def perform_clustering(incidents_df):
 
     return clustering_url
 
-
-
-
-
-
-
 @app.route('/dashboard')
 def dashboard():
     global incidents_df  # Access the global DataFrame
 
     try:
+        if incidents_df.empty:  # Check if the DataFrame is empty
+            return "No data available for dashboard", 400
         # Summarize incident data and sort by count, then take the top 10
         summary = incidents_df.groupby('incident_nature').size().reset_index(name='count')
         top_summary = summary.nlargest(10, 'count')
@@ -212,6 +213,8 @@ def dashboard():
 
         clustering_url = perform_clustering(incidents_df)
         # Pass clustering_url to the template
+
+
         return render_template('dashboard.html', 
                             summary=top_summary.to_dict(orient='records'), 
                             bar_chart_url=bar_chart_url, 
