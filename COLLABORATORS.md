@@ -1,0 +1,4 @@
+- Flask Documentation: [https://flask.palletsprojects.com/](https://flask.palletsprojects.com/)
+- Pytest Documentation: [https://pytest.org/](https://pytest.org/)
+- Pandas Documentation: [https://pandas.pydata.org/](https://pandas.pydata.org/)
+- Seaborn Documentation: [https://seaborn.pydata.org/](https://seaborn.pydata.org/)
