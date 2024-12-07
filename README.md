@@ -222,3 +222,5 @@ Where:
 
 ## Acknowledgments
 This project was self-developed without unapproved external code. Feedback and guidance from the course instructor were strictly followed.
+
+[Watch the video here](https://drive.google.com/file/d/1UQeAdsyWu-qLiPYz8ZxNa0QHjVKPiBfi/view?usp=sharing)
